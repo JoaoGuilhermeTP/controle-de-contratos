@@ -13,6 +13,7 @@
 # Environment variables
 .env
 .env*.local
+/contratos-frontend/.env
 
 # IDE and OS files
 .vscode/

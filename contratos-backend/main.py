@@ -16,12 +16,10 @@ app = Flask(__name__)
 CORS(app)
 
 
-
 # Define a primeira rota (a página inicial, ou "/")
 @app.route('/')
 def home():
   return "API de Contratos no ar!"
-
 
 
 @app.route('/secretarias', methods=['GET'])
@@ -32,7 +30,6 @@ def get_secretarias():
     secretarias_list = [dict(row) for row in secretarias_rows]
     json_string = json.dumps(secretarias_list, ensure_ascii=False)
     return Response(json_string, content_type="application/json; charset=utf-8")
-
 
 
 @app.route('/secretarias', methods=['POST'])
@@ -61,6 +58,7 @@ def create_secretaria():
         status=201,
         content_type="application/json; charset=utf-8"
     )
+    
     
 # Roda a aplicação
 # O host='0.0.0.0' é importante para funcionar no Replit

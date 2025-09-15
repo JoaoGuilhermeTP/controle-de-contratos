@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, process } from 'react';
 import './App.css';
 
 export default function App() {
@@ -10,7 +10,7 @@ export default function App() {
   const [secretario, setSecretario] = useState('');
   // ---------------------------------------------------
 
-  const apiUrl = 'http://localhost:5000/';
+  const apiUrl = import.meta.env.VITE_API_URL;
 
   // Efeito para buscar a lista inicial de secretarias
   useEffect(() => {
@@ -42,7 +42,7 @@ export default function App() {
     })
     .catch(error => console.error("Erro ao criar secretaria:", error));
   };
-  
+
   // ----------------------------------------------------
   return (
     <main>
