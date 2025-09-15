@@ -23,9 +23,7 @@ export default function App() {
   // --- 2. Função para lidar com o envio do formulário ---
   const handleSubmit = (event) => {
     event.preventDefault(); // Impede que a página recarregue ao enviar
-
     const novaSecretaria = { nome, sigla, secretario };
-
     fetch(apiUrl + "/secretarias", {
       method: 'POST', // Usamos o método POST
       headers: {
@@ -44,8 +42,8 @@ export default function App() {
     })
     .catch(error => console.error("Erro ao criar secretaria:", error));
   };
+  
   // ----------------------------------------------------
-
   return (
     <main>
       <h1>Controle de Secretarias</h1>
