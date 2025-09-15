@@ -59,6 +59,19 @@ def create_secretaria():
         content_type="application/json; charset=utf-8"
     )
     
+
+@app.route('/secretarias/<int:id>', methods=['DELETE'])
+def delete_secretaria(id):
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    cursor.execute(
+        'DELETE FROM secretarias WHERE id = (?)', (id,))
+    conn.commit()
+    conn.close()
+    return Response(json.dumps({'message': 'Secretaria deletada com sucesso'}), status=200, content_type="application/json")
+    
+    
+    
     
 # Roda a aplicação
 # O host='0.0.0.0' é importante para funcionar no Replit
