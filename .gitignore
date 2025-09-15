@@ -1,0 +1,26 @@
+# Dependencies
+/contratos-frontend/node_modules
+/contratos-backend/myenv/
+
+# Build artifacts
+/contratos-frontend/dist
+/contratos-frontend/coverage
+
+# Python cache
+**/__pycache__/
+*.pyc
+
+# Environment variables
+.env
+.env*.local
+
+# IDE and OS files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.DS_Store
+Thumbs.db
