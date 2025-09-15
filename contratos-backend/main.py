@@ -70,7 +70,23 @@ def delete_secretaria(id):
     conn.close()
     return Response(json.dumps({'message': 'Secretaria deletada com sucesso'}), status=200, content_type="application/json")
     
-    
+
+@app.route('/secretarias/<int:id>', methods=['PUT'])
+def update_secretaria(id):
+    data = request.json
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    cursor.execute('UPDATE secretarias SET nome = ?, sigla = ?, secretario = ? WHERE id = ?',
+        (data['nome'], data['sigla'], data['secretario'], id))
+    conn.commit()
+    conn.close()
+    secretaria_atualizada = {
+        'id': id,
+        'nome': data['nome'],
+        'sigla': data['sigla'],
+        'secretario': data['secretario']
+    }
+    return Response(json.dumps(secretaria_atualizada), status=200, content_type="application/json")
     
     
 # Roda a aplicação

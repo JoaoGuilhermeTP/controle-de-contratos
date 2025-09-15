@@ -96,6 +96,7 @@ export default function App() {
             <li key={secretaria.id}>
               {secretaria.nome} ({secretaria.sigla}) - Secretário:{" "}
               {secretaria.secretario}
+              <button>Editar</button>
               <button onClick={() => handleDelete(secretaria.id)}>Deletar</button>
             </li>
         ))}
